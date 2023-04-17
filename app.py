@@ -10,8 +10,8 @@ CORS(app, resources={r"/*": {"origins": "*"}},
      methods={"POST", "GET"}, supports_credentials=True)
 
 #openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = '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'
-
+#openai.api_key = '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'
+openai.api_key = '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'
 
 
 
