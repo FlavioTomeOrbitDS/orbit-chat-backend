@@ -5,14 +5,16 @@ import os
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-app = Flask(__name__)
 
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = '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'
 
-CORS(app, resources={r"/*": {"origins": "*"}},
-     methods={"POST", "GET"}, supports_credentials=True)
+
+
+app = Flask(__name__)
+CORS(app)
 
 
 
