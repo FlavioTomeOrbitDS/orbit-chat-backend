@@ -60,5 +60,20 @@ Lista de comentários: {}
 """.format(prompt_string)
 
 
+@app.route('/api/chat', methods=['GET', 'POST'])
+def chat():
+    json_data = request.get_json()
+    content = json_data['content']
+    
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=content,
+        max_tokens=200,
+        temperature=0.6,
+    )
+    print(response)
+    return make_response(jsonify(response.choices[0].text), 200)
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
