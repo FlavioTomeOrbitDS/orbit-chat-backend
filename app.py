@@ -41,10 +41,10 @@ def report():
     print('prompt length: ' + str(len(prompt)))
 
     response = openai.Completion.create(
-        model="text-davinci-003",
+        model="gpt-3.5-turbo",
         prompt=prompt,
         max_tokens=200,
-        temperature=0.2,
+        temperature=0.5,
     )
     print(response)
     return make_response(jsonify(response.choices[0].text), 200)
